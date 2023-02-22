@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shop_it/constants/colors.dart';
+import 'package:shop_it/widgets/buildCard.dart';
 import 'package:shop_it/widgets/buildCategoryCard.dart';
 import 'package:shop_it/widgets/buildSearchBar.dart';
 import '../widgets/buildAppBar.dart';
@@ -55,7 +56,7 @@ class HomePage extends StatelessWidget {
           ),
           // CATEGORY CARDS
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 15),
+            padding: const EdgeInsets.symmetric(horizontal: 5),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
@@ -110,11 +111,42 @@ class HomePage extends StatelessWidget {
             width: (MediaQuery.of(context).size.width),
             height: 135,
             decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15),
-                image: const DecorationImage(
-                  image: AssetImage('assets/img/flash_sale.png'),
-                  fit: BoxFit.cover,
-                )),
+              borderRadius: BorderRadius.circular(15),
+              image: const DecorationImage(
+                image: AssetImage('assets/img/flash_sale.png'),
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          // POPULAR BRANDS TITLE
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 15),
+            child: Text(
+              'Popular Brands',
+              style: TextStyle(
+                fontFamily: 'Montserrat',
+                fontWeight: FontWeight.bold,
+                fontSize: 20,
+              ),
+            ),
+          ),
+          // POPULAR BRANDS CARDS
+          const SizedBox(
+            height: 10,
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 5),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                buildCard(110, 100, 'assets/img/brand_guess.png'),
+                buildCard(110, 100, 'assets/img/brand_lacoste.png'),
+                buildCard(110, 100, 'assets/img/brand_HM.png'),
+              ],
+            ),
           )
         ],
       ),
