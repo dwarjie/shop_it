@@ -181,8 +181,92 @@ class HomePage extends StatelessWidget {
               ),
             ),
           ),
+          const SizedBox(
+            height: 10,
+          ),
+          // NEW ARRIVALS CARD
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 5),
+            child: Column(
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    arrivalCard(
+                      'Headphones',
+                      '₱3,695',
+                      'assets/img/new_headphone.png',
+                    ),
+                    arrivalCard(
+                      'T-Shirt',
+                      '₱3,695',
+                      'assets/img/new_shirt.png',
+                    ),
+                    arrivalCard(
+                      'Apple',
+                      '₱28,575',
+                      'assets/img/new_watch.png',
+                    ),
+                  ],
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    arrivalCard(
+                      'PlayStation',
+                      '₱1,500',
+                      'assets/img/new_controller.png',
+                    ),
+                    arrivalCard(
+                      'Asus',
+                      '₱24,850',
+                      'assets/img/new_tv.png',
+                    ),
+                    arrivalCard(
+                      'Nike',
+                      '₱2,345',
+                      'assets/img/new_short.png',
+                    ),
+                  ],
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+              ],
+            ),
+          ),
         ],
       ),
+    );
+  }
+
+  Column arrivalCard(String title, String price, String imagePath) {
+    return Column(
+      children: [
+        Container(
+          width: 110,
+          height: 150,
+          margin: const EdgeInsets.only(bottom: 5),
+          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+          decoration: BoxDecoration(
+            color: cardGray,
+            borderRadius: BorderRadius.circular(15),
+          ),
+          child: Image.asset(imagePath),
+        ),
+        Text(
+          title,
+          style: const TextStyle(fontSize: 12),
+        ),
+        Text(
+          price,
+          style: const TextStyle(
+              fontSize: 12, fontWeight: FontWeight.bold, color: primaryOrange),
+        )
+      ],
     );
   }
 }
