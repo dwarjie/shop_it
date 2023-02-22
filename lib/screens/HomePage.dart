@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:shop_it/constants/colors.dart';
-import 'package:shop_it/widgets/buildCard.dart';
-import 'package:shop_it/widgets/buildCategoryCard.dart';
-import 'package:shop_it/widgets/buildSearchBar.dart';
+import '../constants/colors.dart';
+import '../widgets/buildCard.dart';
+import '../widgets/buildCategoryCard.dart';
+import '../widgets/buildSearchBar.dart';
 import '../widgets/buildAppBar.dart';
 
 class HomePage extends StatelessWidget {
@@ -147,8 +147,99 @@ class HomePage extends StatelessWidget {
                 buildCard(110, 100, 'assets/img/brand_HM.png'),
               ],
             ),
-          )
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          // BANNER FEET
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15),
+            child: Stack(
+              clipBehavior: Clip.none,
+              children: [
+                buildCard(
+                  (MediaQuery.of(context).size.width),
+                  230,
+                  'assets/img/banner_feet.png',
+                ),
+                const _feetCard()
+              ],
+            ),
+          ),
+          const SizedBox(
+            height: 170,
+          ),
+          // NEW ARRIVAL TITLE
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 15),
+            child: Text(
+              'New Arrivals',
+              style: TextStyle(
+                fontFamily: 'Montserrat',
+                fontWeight: FontWeight.bold,
+                fontSize: 20,
+              ),
+            ),
+          ),
         ],
+      ),
+    );
+  }
+}
+
+class _feetCard extends StatelessWidget {
+  const _feetCard();
+
+  @override
+  Widget build(BuildContext context) {
+    return Positioned(
+      bottom: -150,
+      left: 0,
+      right: 0,
+      child: Center(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 15),
+          child: Card(
+            color: cardGray,
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+            elevation: 0,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const ListTile(
+                    title: Text(
+                      "Trending Products This Week",
+                      style: TextStyle(
+                          fontFamily: 'Montserrat',
+                          fontWeight: FontWeight.bold,
+                          fontSize: 28),
+                    ),
+                    subtitle: Text(
+                      "Tell us what you like and we'll suggest shops from our community.",
+                      style: TextStyle(fontSize: 15),
+                    ),
+                  ),
+                  TextButton(
+                    style: const ButtonStyle(
+                      backgroundColor: MaterialStatePropertyAll(primaryOrange),
+                      padding: MaterialStatePropertyAll(
+                        EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+                      ),
+                    ),
+                    onPressed: () {},
+                    child: const Text(
+                      'Explore',
+                      style: TextStyle(color: Colors.white, fontSize: 14),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
       ),
     );
   }
